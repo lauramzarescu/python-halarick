@@ -1,6 +1,6 @@
 # python-halarick
 
-`instalare Python 3.8.0 - https://www.python.org/downloads/release/python-380/
+`instalare Python 3.8.0 - https://www.python.org/downloads/release/python-380/ \n
 py -m pip install virtualenv
 py -m venv haralick
 cd haralick 
