@@ -1,0 +1,114 @@
+#:kivy 1.10.0
+ 
+<MyWidget>:
+    cols:2
+    id:my_widget
+
+    #FileChooserListView:
+    FileChooserListView:
+        id:filechooser
+        on_selection:my_widget.selected(filechooser.selection)
+        pos_hint:{"left":0,"top":1}
+        size_hint: .5, .35
+ 
+    #afisarea imaginii principale#
+    Image:
+        id:image
+        source:""
+        pos_hint:{"right":1,"top":1}
+        size_hint: .5, .35
+
+    #cele 3 imagini cele mai disimiliare impreuna cu textul aferent ce afiseaza distanta euclidiana.
+    #Cele 3 imagini sunt afisate folosind AsyncImage deoarece poate dura ceva timp pana cand vor fi citite si afisate de pe disc.
+    #Daca folosim Image, imaginile nu vor fi afisate#
+    Label:
+        id: first_diss_label
+        text: 'Euc. distance: '
+        pos_hint:{"right":.95,"bottom":.7}
+        size_hint: .15, .1
+        pos: 550, 300
+    AsyncImage:
+        id:first_diss
+        source:""
+        pos_hint:{"right":.95,"bottom":.5}
+        pos: 550, 140
+        size_hint: .15, .15
+
+    Label:
+        id: second_diss_label
+        text: 'Euc. distance: '
+        pos_hint:{"right":.75,"bottom":.7}
+        size_hint: .15, .1
+        pos: 350, 300
+    AsyncImage:
+        id:second_diss
+        source:""
+        pos_hint:{"right":.75,"bottom":.5}
+        pos: 650, 140
+        size_hint: .15, .15
+
+    Label:
+        id: third_diss_label
+        text: 'Euc. distance: '
+        pos_hint:{"right":.55,"bottom":.7}
+        size_hint: .15, .1
+        pos: 350, 300
+    AsyncImage:
+        id:third_diss
+        source:""
+        pos_hint:{"right":.55,"bottom":.5}
+        pos: 750, 140
+        size_hint: .15, .15
+
+
+
+    
+    Button:
+        text: 'Calculate features'
+        size: 10, 10
+        on_press: root.calculateFeatures()
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 70, 270
+        size_hint: .15, .1
+
+    Button:
+        text: 'Get dissimilar images'
+        size: 10, 10
+        on_press: root.getDissimilarImages()
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 70, 170
+        size_hint: .15, .1
+    
+    #afisarea celor 5 proprietati#
+    Label:
+        id: contrast
+        text: 'Contrast'
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 350, 300
+        size_hint: .15, .1
+    
+    Label:
+        id: energy
+        text: 'Energy'
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 350, 260
+        size_hint: .15, .1
+    Label:
+        id: homogeneity
+        text: 'Homogeneity'
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 350, 220
+        size_hint: .15, .1
+    Label:
+        id: correlation
+        text: 'Correlation'
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 350, 180
+        size_hint: .15, .1
+    Label: 
+        id: dissimilarity
+        text: 'Dissimilarity'
+        pos_hint:{"left":.4,"bottom":.5}
+        pos: 350, 140
+        size_hint: .15, .1
+    
